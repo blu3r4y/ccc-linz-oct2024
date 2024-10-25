@@ -38,7 +38,7 @@ if __name__ == "__main__":
             print("======================")
 
             result = solve(data)
-            pprint(result)
+            # pprint(result)
 
             with open(output_file, "w+") as fo:
                 fo.write(result)
