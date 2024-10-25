@@ -10,8 +10,8 @@ from .utils import infer_current_level, infer_quests_for_level
 def load(lines: list[str]) -> dict:
     rooms = []
     for line in lines[1:]:
-        a, b = map(int, line.split())
-        rooms.append((a, b))
+        x, y, ndesks = map(int, line.split())
+        rooms.append((x, y, ndesks))
 
     return dict(rooms=rooms)
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     base_path = Path("data")
     level = infer_current_level(base_path)
     quests = infer_quests_for_level(base_path, level)
-    # quests = ["1"]
+    # quests = ["example"]
 
     for quest in quests:
         input_file = base_path / f"level{level}_{quest}.in"
