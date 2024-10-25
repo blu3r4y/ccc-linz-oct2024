@@ -7,8 +7,13 @@ from .contest import solve
 from .utils import infer_current_level, infer_quests_for_level
 
 
-def load(data: list[str]) -> dict:
-    return dict(lines=data)
+def load(lines: list[str]) -> dict:
+    rooms = []
+    for line in lines[1:]:
+        a, b = map(int, line.split())
+        rooms.append((a, b))
+
+    return dict(rooms=rooms)
 
 
 if __name__ == "__main__":
